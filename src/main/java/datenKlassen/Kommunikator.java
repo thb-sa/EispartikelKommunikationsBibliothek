@@ -12,7 +12,7 @@ public class Kommunikator {
         this.host = host;
     }
 
-    public void setNeueStationListener(NeueStationenListener listener) {
+    public void setNeueStationListener(NeueStationenListener listener) throws IOException {
         Socket socket;
         try {
             socket = new Socket(host, PORT);
@@ -26,8 +26,6 @@ public class Kommunikator {
                 }
             }
             socket.close();
-        } catch (IOException e) {
-            e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
