@@ -6,17 +6,16 @@ import java.net.Socket;
 
 public class Kommunikator {
     private String host;
-    private int port;
+    private final static int PORT = 7000;
 
-    public Kommunikator(String host, int port) {
+    public Kommunikator(String host) {
         this.host = host;
-        this.port = port;
     }
 
     public void setNeueStationListener(NeueStationenListener listener) {
         Socket socket;
         try {
-            socket = new Socket(host, port);
+            socket = new Socket(host, PORT);
             ObjectInputStream stream = new ObjectInputStream(socket.getInputStream());
             while(true) {
                 Station station = (Station) stream.readObject();
