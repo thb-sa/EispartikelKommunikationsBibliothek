@@ -1,6 +1,9 @@
 package datenKlassen;
 
 
+import lombok.Data;
+import lombok.NonNull;
+
 import java.io.Serializable;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -10,59 +13,22 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author Mario Kaulmann
  * 
  */
+@Data
 public class Station implements Serializable {
 	/*
 	 * Dieser Wert ist der eindeutige identifizierer einer Station im System
 	 */
+	@NonNull
 	private String stationID;
 	/*
 	 * Dieser Wert gibt an, wie hoch die Konzentration von Eispartikeln in der
 	 * Luft sein soll
 	 */
+	@NonNull
 	private int vorgabewert;
 	/*
 	 * Diese Hashmap enthaelt alle einem Datum zugeordneten aktuellen Werte der
 	 * Eispartikelkonzentrationen.
 	 */
-	private ConcurrentHashMap<String, Integer> aktuelleWerte;
-
-	/**
-	 * Dieser Konstruktor wird genutzt um eine neue Station zum System
-	 * hinzuzufuegen.
-	 * 
-	 * @param name
-	 *            Name der Station
-	 * @param vorgabewert
-	 *            Vorgabe des Eispartikelwerts
-	 */
-	public Station(String stationID, int vorgabewert) {
-		aktuelleWerte = new ConcurrentHashMap<String, Integer>();
-		setVorgabewert(vorgabewert);
-		setStationID(stationID);
-	}
-
-	public String getStationID() {
-		return stationID;
-	}
-
-	public void setStationID(String stationID) {
-		this.stationID = stationID;
-	}
-
-	public int getVorgabewert() {
-		return vorgabewert;
-	}
-
-	public void setVorgabewert(int vorgabewert) {
-		this.vorgabewert = vorgabewert;
-	}
-
-	public ConcurrentHashMap<String, Integer> getAktuelleWerte() {
-		return aktuelleWerte;
-	}
-
-	public void setAktuelleWerte(
-			ConcurrentHashMap<String, Integer> aktuelleWerte) {
-		this.aktuelleWerte = aktuelleWerte;
-	}
+	private ConcurrentHashMap<String, Integer> aktuelleWerte = new ConcurrentHashMap<String, Integer>();
 }
