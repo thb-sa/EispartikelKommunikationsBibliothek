@@ -1,6 +1,5 @@
 package datenKlassen;
 
-
 import java.io.Serializable;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -21,10 +20,10 @@ public class Station implements Serializable {
 	 */
 	private int vorgabewert;
 	/*
-	 * Diese Hashmap enthaelt alle einem Datum zugeordneten aktuellen Werte der
-	 * Eispartikelkonzentrationen.
+	 * Diese Hashmap enthaelt alle einem Datum zugeordneten aktuellen Werte und
+	 * Differenzwerte der Eispartikelkonzentrationen.
 	 */
-	private ConcurrentHashMap<String, Integer> aktuelleWerte;
+	private ConcurrentHashMap<String, Tageswerte> aktuelleWerte;
 
 	/**
 	 * Dieser Konstruktor wird genutzt um eine neue Station zum System
@@ -36,7 +35,7 @@ public class Station implements Serializable {
 	 *            Vorgabe des Eispartikelwerts
 	 */
 	public Station(String stationID, int vorgabewert) {
-		aktuelleWerte = new ConcurrentHashMap<String, Integer>();
+		aktuelleWerte = new ConcurrentHashMap<String, Tageswerte>();
 		setVorgabewert(vorgabewert);
 		setStationID(stationID);
 	}
@@ -57,12 +56,12 @@ public class Station implements Serializable {
 		this.vorgabewert = vorgabewert;
 	}
 
-	public ConcurrentHashMap<String, Integer> getAktuelleWerte() {
+	public ConcurrentHashMap<String, Tageswerte> getAktuelleWerte() {
 		return aktuelleWerte;
 	}
 
 	public void setAktuelleWerte(
-			ConcurrentHashMap<String, Integer> aktuelleWerte) {
+			ConcurrentHashMap<String, Tageswerte> aktuelleWerte) {
 		this.aktuelleWerte = aktuelleWerte;
 	}
 }
