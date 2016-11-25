@@ -1,4 +1,4 @@
-package datenKlassen;
+package funktionaleKlassen;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
