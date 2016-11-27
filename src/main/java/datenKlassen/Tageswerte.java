@@ -19,10 +19,15 @@ public class Tageswerte implements Serializable {
 	 * Differenz zwischen aktuellen Wert und dem Vorgabewert an dem Tag
 	 */
 	private int abweichung;
+	/*
+	 * relative Abweichung
+	 */
+	private int relativeAbweichung;
 
-	public Tageswerte(int aktuellerWert, int abweichung) {
+	public Tageswerte(int aktuellerWert, int abweichung, int relativeAbweichung) {
 		this.aktuellerWert = aktuellerWert;
 		this.abweichung = abweichung;
+		this.relativeAbweichung = relativeAbweichung;
 	}
 
 	public int getAktuellerWert() {
@@ -33,4 +38,7 @@ public class Tageswerte implements Serializable {
 		return abweichung;
 	}
 
+	public int getRelativeAbweichung() {
+		return relativeAbweichung;
+	}
 }
