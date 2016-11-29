@@ -11,15 +11,13 @@ import java.io.Serializable;
 public class Aenderungsmeldung implements Serializable {
 	private String stationID;
 	private String datum;
-	private int abweichung;
-	private int relativeAbweichung;
+	private Tageswerte tageswerte;
 
-	public Aenderungsmeldung(String staionID, String datum, int abweichung,
+	public Aenderungsmeldung(String staionID, String datum, int wert, int abweichung,
 			int relativeAbweichung) {
 		this.stationID = staionID;
 		this.datum = datum;
-		this.abweichung = abweichung;
-		this.relativeAbweichung = relativeAbweichung;
+		this.tageswerte = new Tageswerte(wert, abweichung, relativeAbweichung);
 	}
 
 	public String getStationID() {
@@ -30,11 +28,7 @@ public class Aenderungsmeldung implements Serializable {
 		return datum;
 	}
 
-	public int getAbweichung() {
-		return abweichung;
-	}
-
-	public int getRelativeAbweichung() {
-		return relativeAbweichung;
+	public Tageswerte getTageswerte(){
+		return tageswerte;
 	}
 }
