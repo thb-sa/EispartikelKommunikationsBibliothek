@@ -14,10 +14,10 @@ public class Aenderungsmeldung implements Serializable {
 	private Tageswerte tageswerte;
 
 	public Aenderungsmeldung(String staionID, String datum, int wert, int abweichung,
-			int relativeAbweichung) {
+							 int relativeAbweichung, Tageswerte.Darstellung darstellung) {
 		this.stationID = staionID;
 		this.datum = datum;
-		this.tageswerte = new Tageswerte(wert, abweichung, relativeAbweichung);
+		this.tageswerte = new Tageswerte(wert, abweichung, relativeAbweichung, darstellung);
 	}
 
 	public String getStationID() {
