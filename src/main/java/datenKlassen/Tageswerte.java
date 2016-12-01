@@ -26,10 +26,16 @@ public class Tageswerte implements Serializable {
 	 */
 	private int relativeAbweichung;
 
-	public Tageswerte(int aktuellerWert, int abweichung, int relativeAbweichung) {
+	/*
+	 * Als was der Wert in der GUI dargestellt werden soll
+	 */
+	private Darstellung darstellung;
+
+	public Tageswerte(int aktuellerWert, int abweichung, int relativeAbweichung, Darstellung darstellung) {
 		this.aktuellerWert = aktuellerWert;
 		this.abweichung = abweichung;
 		this.relativeAbweichung = relativeAbweichung;
+		this.darstellung = darstellung;
 	}
 
 	public int getAktuellerWert() {
@@ -45,11 +51,6 @@ public class Tageswerte implements Serializable {
 	}
 
 	public Darstellung getDarstellung() {
-		if (relativeAbweichung <= -10) {
-			return Darstellung.NIEDRIG;
-		} else if (relativeAbweichung >= 5) {
-			return Darstellung.HOCH;
-		}
-		return Darstellung.NORMAL;
+		return darstellung;
 	}
 }
