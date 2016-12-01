@@ -11,6 +11,8 @@ import java.io.Serializable;
  */
 public class Tageswerte implements Serializable {
 
+	public enum Darstellung { NORMAL, HOCH, NIEDRIG };
+
 	/*
 	 * Aktueller Wert an dem Tag
 	 */
@@ -40,5 +42,14 @@ public class Tageswerte implements Serializable {
 
 	public int getRelativeAbweichung() {
 		return relativeAbweichung;
+	}
+
+	public Darstellung getDarstellung() {
+		if (relativeAbweichung <= -10) {
+			return Darstellung.NIEDRIG;
+		} else if (relativeAbweichung >= 5) {
+			return Darstellung.HOCH;
+		}
+		return Darstellung.NORMAL;
 	}
 }
